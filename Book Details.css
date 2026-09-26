@@ -1,0 +1,215 @@
+/* =========================================================
+   6-COLOR PALETTE SETUP (Light Background Theme)
+   ========================================================= */
+:root {
+  --c1-darkest: #06141b; /* Titles, Headings & Primary Text */
+  --c2-navy: #11212d; /* Header & Footer Section Background */
+  --c3-slate: #253745; /* Dark Accent / Button Background */
+  --c4-steel: #4a5c6a; /* Borders & Subtle Accents */
+  --c5-silver: #9ba8ab; /* Card Cover Placeholder & Badges */
+  --c6-light: #c3cfdc; /* Main Body Page Background (Light) */
+}
+/* RESET DEFAULT STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* body */
+body {
+  background-color: var(--c6-light);
+  color: var(--c1-darkest);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   HEADER & NAVIGATION
+   ========================================================= */
+.site-header {
+  background-color: var(--c2-navy);
+  border-bottom: 3px solid var(--c4-steel);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* STACKED CENTERED HEADER (MOBILE / COMPACT VIEW) */
+.header-container {
+  display: flex;
+  flex-direction: column; /* Stacks logo on top, nav on bottom */
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem; /* Space between logo and navigation links */
+  padding: 1rem 1.5rem;
+}
+
+.main-nav a {
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--c6-light);
+}
+
+.logo-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+}
+
+.logo .highlight {
+  color: var(--c5-silver);
+}
+
+/* NAVIGATION LINKS */
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  position: relative;
+  text-decoration: none;
+  color: var(--c5-silver);
+  font-weight: 500;
+  padding-bottom: 6px;
+  white-space: nowrap; /* Prevents long labels like "Book Details" from wrapping */
+  transition: color 0.3s ease;
+}
+
+/* Base Underline Setup */
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--c6-light);
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+.main-nav a:hover {
+  color: var(--c6-light);
+}
+
+/* NAVIGATION BUTTON */
+.btn-primary {
+  background-color: var(--c3-slate);
+  color: var(--c6-light);
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--c1-darkest);
+}
+
+/* Layout Container */
+.book-details-container {
+  display: flex;
+  gap: 2.5rem;
+  max-width: 1050px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  align-items: flex-start;
+}
+
+/* Cover Image Styling */
+.book-cover-large {
+  width: 320px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.book-cover-large img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Right Content Area */
+.book-info-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Header Text */
+.book-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--c1-darkest); /* Or #06141B */
+  margin: 0 0 0.25rem 0;
+}
+
+.book-author {
+  font-size: 1rem;
+  color: var(--c4-slate); /* Or #4A5C6A */
+  margin: 0;
+}
+
+/* Summary Card */
+.summary-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.summary-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--c1-darkest);
+  margin: 0 0 1rem 0;
+  padding-left: 0.75rem;
+  border-left: 4px solid var(--c1-darkest); /* Left indicator line */
+}
+
+.summary-text {
+  color: var(--c4-slate);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .book-details-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .book-cover-large {
+    width: 100%;
+    max-width: 280px;
+  }
+}
